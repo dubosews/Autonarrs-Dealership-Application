@@ -28,7 +28,7 @@ const inventoryArray = [];
             };
 
         // Request Open
-            inventoryRequest.open("GET", "../php/fetchInventory.php");
+            inventoryRequest.open("GET", "/client/src/php/inventoryList.php");
 
         // Request Send
             inventoryRequest.send();
@@ -58,15 +58,15 @@ const inventoryArray = [];
             console.log(dataDescription);
 
         // Creating New Body Element
-            var cardDestination = document.getElementById("Vehicle Card");
-            var cardElement = document.createElement("tr");
+            var cardDestination = document.getElementById("cardDest");
+            var cardElement = document.createElement("div");
             
             // Template to Format Inventory Card
                 cardElement.innerHTML = 
                     `
-                        <div class="vehicleCard">
+                        <div class="vehicleCard" id="`+dataID+`">
                             <div class="vehicleThumb">
-                                <img src="./testImage.jpg" alt="vehicleThumb" />
+                                <img src="../../../src/img/`+dataID+`_thumb.jpg" alt="vehicleThumb"></img>
                             </div>
                             <div class="vehicleDetails">
                                 <div class="detailsH1">
@@ -76,13 +76,15 @@ const inventoryArray = [];
                                     <div class="h1Trim">`+dataTrim+`</div>
                                 </div>
                                 <div class="detailsP1"> 
-                                    <div class="infoBtn">`+dataMileage+`</div> 
-                                    <div class="infoBtn">`+dataPrice+`</div>
+                                    <div class="infoBtn">`+dataMileage+` miles</div> 
+                                    <div class="infoBtn">$`+dataPrice+`</div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     `;
         
         // Add new Element to the Document
             cardDestination.appendChild(cardElement); 
     };
+
+fetchInventory();
