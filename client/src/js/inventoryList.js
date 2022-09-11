@@ -52,8 +52,10 @@ const inventoryArray = [];
             console.log(dataYear);
             console.log(dataMake);
             console.log(dataModel);
+            console.log(dataTrim);
             console.log(dataMileage);
             console.log(dataPrice);
+            console.log(dataDescription);
 
         // Creating New Body Element
             var cardDestination = document.getElementById("Vehicle Card");
@@ -62,40 +64,23 @@ const inventoryArray = [];
             // Template to Format Inventory Card
                 cardElement.innerHTML = 
                     `
-                        <td class="stockID">
-                            <input type="text" id="id" name="id" form="`+dataID+`" value="`+dataID+`"> 
-                        </td>
-                        <td class="year">
-                            <input type="text" id="year" name="year" form="`+dataID+`" value="`+dataYear+`"> 
-                        </td>
-                        <td class="make">
-                            <input type="text" id="make" name="make" form="`+dataID+`" value="`+dataMake+`"> 
-                        </td>
-                        <td class="model">
-                            <input type="text" id="model" name="model" form="`+dataID+`" value="`+dataModel+`"> 
-                        </td>
-                        <td class="trim">
-                            <input type="text" id="trim" name="trim" form="`+dataID+`" value="`+dataTrim+`"> 
-                        </td>
-                        <td class="mileage">
-                            <input type="text" id="mileage" name="mileage" form="`+dataID+`" value="`+dataMileage+`"> 
-                        </td>
-                        <td class="price">
-                            <input type="text" id="price" name="price" form="`+dataID+`" value="`+dataPrice+`"> 
-                        </td>
-                        <td class="description">
-                            <input type="text" id="description" name="description" form="`+dataID+`" value="`+dataDescription+`"> 
-                        </td>
-                        <td class="btnContainer">
-                            <form id="`+dataID+`" action="../php/updateVehicle.php" method="post">
-                                <button type="submit" value="submit" id="editBtn" onclick="editBtnTest(`+dataID+`)" class="toolBtn editBtn" name="`+dataID+`">
-                                    <img src="../img/editBtnIco.png" alt="editButton"></img>
-                                </button>
-                            </form>
-                            <button id="`+dataID+`" onclick="deleteVehicle(`+dataID+`)" class="toolBtn deleteBtn">
-                                <img src="../img/deleteBtnIco.png" alt="deleteButton"></img>
-                            </button>
-                        </td>
+                        <div class="vehicleCard">
+                            <div class="vehicleThumb">
+                                <img src="./testImage.jpg" alt="vehicleThumb" />
+                            </div>
+                            <div class="vehicleDetails">
+                                <div class="detailsH1">
+                                    <div class="Year">`+dataYear+`</div>
+                                    <div class="h1Make">`+dataMake+`</div>
+                                    <div class="h1Model">`+dataModel+`</div>
+                                    <div class="h1Trim">`+dataTrim+`</div>
+                                </div>
+                                <div class="detailsP1"> 
+                                    <div class="infoBtn">`+dataMileage+`</div> 
+                                    <div class="infoBtn">`+dataPrice+`</div>
+                                </div>
+                            </div>
+                        </div> 
                     `;
         
         // Add new Element to the Document
