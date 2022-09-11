@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vehicle</title>
+</head>
+<body>
+    <center>
+      <h1>Add a New Vehicle to Inventory: </h1>
+      <form action="../php/addVehicle.php" method="POST">
+        <label for="id">Vehicle ID:</label><br>
+            <input type="number" id="id" name="id" placeholder="Vehicle ID"><br>
+        <label for="year">Vehicle Year:</label><br>
+            <input type="number" id="year" name="year" placeholder="Year"><br>
+        <label for="make">Vehicle Make:</label><br>
+          <input type="text" id="make" name="make" placeholder="Make"><br><br>
+        <label for="model">Vehicle Model:</label><br>
+          <input type="text" id="model" name="model" placeholder="Model"><br><br>
+        <label for="trim">Vehicle Trim:</label><br>
+          <input type="text" id="trim" name="trim" placeholder="Trim"><br><br>
+        <label for="mileage">Vehicle Mileage:</label><br>
+          <input type="number" id="mileage" name="mileage" placeholder="Mileage"><br><br>
+        <label for="price">Vehicle Price:</label><br>
+          <input type="text" id="price" name="price" placeholder="Price"><br><br>
+        <label for="price">Vehicle Description:</label><br>
+          <input type="text" id="description" name="description" placeholder="description"><br><br>
+        <input type="submit" value="submit">
+      </form> 
+    </center>
+</body>
+</html>
