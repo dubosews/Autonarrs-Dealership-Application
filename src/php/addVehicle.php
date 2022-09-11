@@ -2,8 +2,8 @@
 
 // Server Connection Data
   $servername = "localhost";
-  $username = "dubdee";
-  $password = "Mustang73!";
+  $username = "dubosews";
+  $password = "dubosewsSQL!!";
   $dbname = "autonarrsDB";
 
 // Form Input Value Variables

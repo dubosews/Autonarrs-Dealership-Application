@@ -3,8 +3,8 @@ header("Content-Type: application/json");
 
 // Server Connection Data
   $servername = "localhost";
-  $username = "dubdee";
-  $password = "Mustang73!";
+  $username = "dubosews";
+  $password = "dubosewsSQL!";
   $dbname = "autonarrsDB";
 
 // Create connection

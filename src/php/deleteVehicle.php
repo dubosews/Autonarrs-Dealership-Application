@@ -4,8 +4,8 @@
 
 // Server Connection Data
     $servername = "localhost";
-    $username = "dubdee";
-    $password = "Mustang73!";
+    $username = "dubosews";
+    $password = "dubosewsSQL!";
     $dbname = "autonarrsDB";
 
 // Retrieving the ID of the Vehicle Being Removed from The Request URL
