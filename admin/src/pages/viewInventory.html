@@ -5,28 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-    <center>
-        <h1>Autonarrs Inventory List:</h1>
-        <a href="./addVehicle.html"><div class="addBtn">Add Vehicle</div></a>
-        <a href="./imageup.html"><div class="addBtn">Upload Image</div></a>
-            <table id="inventoryContainer">
-                <tr>
-                    <th>Stock ID:</th>
-                    <th>Year:</th>
-                    <th>Make: </th>
-                    <th>Model: </th>
-                    <th>Trim: </th>
-                    <th>Mileage: </th>
-                    <th>Price ($): </th>
-                    <th>Description: </th>
-                    <th>Tools: </th>
-                </tr>
-
-            </table>
+    <div class="adminLogin" id="adminLogin">
+        <input type="text" name="user" onchange="verifyUser()" id="user"> </input>
+        <input type="text" name="password" onchange="verifyPassword()" id="password"> </input>
+        <button class="loginBtn" id="loginBtn" onclick="displayContent()">Login</button>
+    </div>
+    <div class="utilityContent" id="utilityContent">
+            <h1>Autonarrs Inventory List:</h1>
+            <a href="./addVehicle.html"><div class="addBtn">Add Vehicle</div></a>
+            <a href="./imageup.html"><div class="addBtn">Upload Image</div></a>
+                <table id="inventoryContainer">
+                    <tr>
+                        <th>Stock ID:</th>
+                        <th>Year:</th>
+                        <th>Make: </th>
+                        <th>Model: </th>
+                        <th>Trim: </th>
+                        <th>Mileage: </th>
+                        <th>Price ($): </th>
+                        <th>Description: </th>
+                        <th>Tools: </th>
+                    </tr>
+    
+                </table>
             <div ></div>
-    </center>
+    </div>
 <script src="../js/viewInventory.js"></script>
 </body>
 </html>
