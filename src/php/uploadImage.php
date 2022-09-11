@@ -1,9 +1,19 @@
 <?php
-    $target_dir = "uploads/";
+    $id = $_POST['id'];
+    $file = "images";
+    if(is_dir("$id")) {
+        echo ("$file is a directory");
+    } else {
+        mkdir("../img/uploads/$id");  
+    }
+    
+    
+    $target_dir = "../img/";
+    $a = scandir($target_dir);
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
+    
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -23,7 +33,7 @@
     }
 
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 500000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
     }
@@ -46,4 +56,6 @@
         echo "Sorry, there was an error uploading your file.";
     }
     }
+    
+    print($a);
 ?>
