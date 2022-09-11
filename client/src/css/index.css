@@ -1,0 +1,84 @@
+body {
+    font-family: helvetica;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.vehicleDetails {
+    margin-right: -10px;
+}
+
+.vehicleCard {
+    min-width: 33%;
+    width: fit-content;
+    height: auto;
+    background-color: rgba(237, 237, 237, 0.451);
+    border: 1px solid #007fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.vehicleCard:hover {
+    background-color: #007fff;
+    color: white;
+    transition: .25s;
+}
+
+.vehicleCard:hover .infoBtn {
+    background-color: white;
+    color: #0080ffcc;
+    transition: .25s;
+}
+
+.vehicleThumb { 
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.vehicleThumb img {
+    width: 150px;
+    height: auto;
+    margin-left: 5px;
+}
+
+.infoBtn {
+    background-color: #007fff;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.detailsH1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 15px;
+    font-weight: 525;
+}
+
+.detailsH1 div {
+    margin-left: 5px;
+    margin-right: px;
+}
+
+.detailsP1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: 10px;
+}
+
+.detailsP1 div {
+    margin: 5px;
+}
