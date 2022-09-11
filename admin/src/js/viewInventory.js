@@ -1,3 +1,77 @@
+function verifyUser () {
+
+    var userInput = document.getElementById('user').value;
+        
+    // Define New Inventory Data Request
+        const usernameVerification = new XMLHttpRequest();
+
+    //Request Onload 
+        usernameVerification.onload = function() {
+
+            // Response Data Collection and Filter
+                const response = this.response;
+                const jsonResp = JSON.parse(this.response);
+
+            // Console Log Parsed Response Data
+                console.log("Server Response: "+jsonResp);
+            
+            // Add Inventory data to the inventoryArray w/ extra log
+                for (let i=0; i < jsonResp.length; i++) {
+                    var username = jsonResp[i].username;
+                    if (username === userInput){
+                        document.getElementById('user').style.backgroundColor= "green";
+                    } else {
+                        console.log("incorrect username");
+                    }
+                }
+        };
+
+    // Request Open
+        usernameVerification.open("GET", "../php/login.php");
+
+    // Request Send
+        usernameVerification.send();
+}
+
+function verifyPassword () {
+
+    var passwordInput = document.getElementById('password').value;
+        
+    // Define New Inventory Data Request
+        const passwordVerification = new XMLHttpRequest();
+
+    //Request Onload 
+        passwordVerification.onload = function() {
+
+            // Response Data Collection and Filter
+                const response = this.response;
+                const jsonResp = JSON.parse(this.response);
+
+            // Console Log Parsed Response Data
+                console.log("Server Response: "+jsonResp);
+            
+                for (let i=0; i < jsonResp.length; i++) {
+                    var password = jsonResp[i].password;
+                    if (password === passwordInput){
+                        document.getElementById('loginBtn').style.display= "flex";
+                    } else {
+                        console.log("incorrect password");
+                    }
+                }
+        };
+
+    // Request Open
+        passwordVerification.open("GET", "../php/login.php");
+
+    // Request Send
+        passwordVerification.send();
+}
+
+function displayContent () {
+     document.getElementById('adminLogin').style.display = "none";
+     document.getElementById('utilityContent').style.display = "flex";
+} 
+
 // Define Array for Inventory Data Retrieved
 const inventoryArray = [];
 
