@@ -24,7 +24,7 @@
 
 // SQL Validation
     if ($conn->query($sql) === TRUE) {
-        header('Location: http://www.autonarrs.com/src/pages/viewInventory.html');
+        header('Location: http://www.autonarrs.com/admin/admin.html');
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     };

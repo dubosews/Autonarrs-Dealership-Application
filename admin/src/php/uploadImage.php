@@ -4,11 +4,11 @@
     if(is_dir("$id")) {
         echo ("$file is a directory");
     } else {
-        mkdir("../img/uploads/$id");  
+        mkdir("../../../client/src/img/uploads/$id");  
     }
     
     
-    $target_dir = "../img/";
+    $target_dir = "../../../client/src/img/";
     $a = scandir($target_dir);
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
@@ -39,9 +39,9 @@
     }
 
     // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    if($imageFileType != "jpg" && $imageFileType != "jpeg"
+ ) {
+    echo "Sorry, only JPG & JPEG files are allowed.";
     $uploadOk = 0;
     }
 
@@ -52,6 +52,7 @@
     } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        header('Location: http://www.autonarrs.com/admin/src/pages/imageup.html');
     } else {
         echo "Sorry, there was an error uploading your file.";
     }

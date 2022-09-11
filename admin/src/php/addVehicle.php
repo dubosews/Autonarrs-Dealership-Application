@@ -38,7 +38,7 @@
 
 // SQL Validation
   if ($conn->query($sql) === TRUE) {
-    header('Location: http://www.autonarrs.com/');
+    header('Location: http://www.autonarrs.com/admin/admin.html');
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

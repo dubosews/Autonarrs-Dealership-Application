@@ -66,7 +66,7 @@ const inventoryArray = [];
                     `
                         <div class="vehicleCard" id="`+dataID+`">
                             <div class="vehicleThumb">
-                                <img src="../../../src/img/`+dataID+`_thumb.jpg" alt="vehicleThumb"></img>
+                                <img src="../img/`+dataID+`_thumb.jpg" alt="vehicleThumb"></img>
                             </div>
                             <div class="vehicleDetails">
                                 <div class="detailsH1">
