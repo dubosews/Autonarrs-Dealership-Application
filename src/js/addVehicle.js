@@ -23,7 +23,7 @@ function loadImages () {
             inventoryRequest.setRequestHeader("Content-Type");
 
         // Request Open
-            inventoryRequest.open("GET", "../php/getImages.php");
+            inventoryRequest.open("GET", "./php/getImages.php");
 
         // Request Send
             inventoryRequest.send();
