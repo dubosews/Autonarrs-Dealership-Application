@@ -66,7 +66,7 @@ const inventoryArray = [];
                     `
                         <div class="vehicleCard" id="`+dataID+`">
                             <div class="vehicleThumb">
-                                <img src="../src/img/`+dataID+`_thumb.jpg" alt="vehicleThumb"></img>
+                                <img src="/client/src/img/`+dataID+`_thumb.jpg" alt="vehicleThumb"></img>
                             </div>
                             <div class="vehicleDetails">
                                 <div class="detailsH1">
@@ -78,6 +78,10 @@ const inventoryArray = [];
                                 <div class="detailsP1"> 
                                     <div class="infoBtn">`+dataMileage+` miles</div> 
                                     <div class="infoBtn">$`+dataPrice+`</div>
+                                    <form action="./src/php/singleVehicle.php" method="post">
+                                        <input class="infoBtn" type="submit" id="viewVehicle" value="`+dataID+`">View Details</div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
