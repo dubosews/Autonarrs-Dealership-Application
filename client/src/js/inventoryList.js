@@ -78,10 +78,7 @@ const inventoryArray = [];
                                 <div class="detailsP1"> 
                                     <div class="infoBtn">`+dataMileage+` miles</div> 
                                     <div class="infoBtn">$`+dataPrice+`</div>
-                                    <form action="./src/php/singleVehicle.php" method="post">
-                                        <input class="infoBtn" type="submit" id="viewVehicle" value="`+dataID+`">View Details</div>
-                                    </form>
-
+                                    <div class="infoBtn" onclick="viewSingleVehicle(`+dataID+`)">View Details</div>
                                 </div>
                             </div>
                         </div>
@@ -90,5 +87,11 @@ const inventoryArray = [];
         // Add new Element to the Document
             cardDestination.appendChild(cardElement); 
     };
+
+
+
+function viewSingleVehicle (data) {
+    window.location.replace("www.autonarrs.com/client/inventory.html?id="+data+"");
+}
 
 fetchInventory();
