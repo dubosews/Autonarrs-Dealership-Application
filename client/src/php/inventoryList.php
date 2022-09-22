@@ -36,8 +36,9 @@ header("Content-Type: application/json");
     while($data = $result->fetch_assoc()) {
       $respData = [ 'id' => $data["id"], 'year' => $data["year"], 'make' => $data["make"], 'model' => $data["model"], 'trim' => $data["trim"], 'mileage' => $data["mileage"], 'price' => $data["price"], 'description' => $data["description"]];
       array_push($respArray, $respData);
-    }
-    echo json_encode($respArray);
+    } 
+    $encode = json_encode($data);
+    print($encode);
   } else {
     echo "0 results";
   }
