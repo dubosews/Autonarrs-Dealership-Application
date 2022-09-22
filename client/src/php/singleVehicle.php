@@ -7,6 +7,7 @@ header("Content-Type: application/json");
   $password = "dubosewsSQL!";
   $dbname = "autonarrsDB";
   $stockID = $_POST['viewVehicle'];
+  $params = $_GET['id'];
 
 // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,20 +18,10 @@ header("Content-Type: application/json");
   }
 
 // SQL Statement
-  $sql = "SELECT * FROM inventory WHERE id=$stockID";
-
-// SQL Validation
-  if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    
-  }
+  $sql = "SELECT * FROM inventory WHERE id='$params'";
 
   $result = $conn->query($sql);
 
-
-  
-  
   if ($result->num_rows > 0) {
     $respArray = [];
     // output data of each row
@@ -38,14 +29,10 @@ header("Content-Type: application/json");
       $respData = [ 'id' => $data["id"], 'year' => $data["year"], 'make' => $data["make"], 'model' => $data["model"], 'trim' => $data["trim"], 'mileage' => $data["mileage"], 'price' => $data["price"], 'description' => $data["description"]];
       array_push($respArray, $respData);
     }
-    <div>
-     $respArray
-    </div> $respArray;
-    echo $stockID;
+    echo json_encode($respArray);
   } else {
     echo "0 results";
   }
 
-  
-
 $conn->close();
+?>
