@@ -39,9 +39,9 @@
     }
 
     // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "jpeg"
+    if($imageFileType != "jpg"
  ) {
-    echo "Sorry, only JPG & JPEG files are allowed.";
+    echo "Sorry, only JPG files are allowed, please change ending from jpeg to jpg before uploading.";
     $uploadOk = 0;
     }
 
