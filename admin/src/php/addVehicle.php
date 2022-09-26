@@ -3,7 +3,7 @@
 // Server Connection Data
   $servername = "localhost";
   $username = "dubosews";
-  $password = "dubosewsSQL!!";
+  $password = "dubosewsSQL!";
   $dbname = "autonarrsDB";
 
 // Form Input Value Variables
@@ -19,28 +19,29 @@
 
 // Form Validatation
   if (!empty($id) || !empty($year) || !empty($make) || !empty($model) || !empty($trim) || !empty($mileage) || !empty($price) || !empty($description)) {
+  
+    // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+  
+  // SQL Statement
+    $sql = "INSERT INTO inventory (id, year, make, model, trim, mileage, price, description)
+            VALUES ('$id', '$year', '$make', '$model', '$trim', '$mileage', '$price', '$description')";
+  
+  // SQL Validation
+    if ($conn->query($sql) === TRUE) {
+      header('Location: https://www.autonarrs.com/admin/src/pages/viewInventory.html');
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  
   } else {
       echo "All Fields Are Required!";
     die();
-  }
-
-// Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-// SQL Statement
-  $sql = "INSERT INTO inventory (id, year, make, model, trim, mileage, price, description)
-  VALUES ('$id', '$year', '$make', '$model', '$trim', '$mileage', '$price', '$description')";
-
-// SQL Validation
-  if ($conn->query($sql) === TRUE) {
-    header('Location: http://www.autonarrs.com/admin/admin.html');
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
   }
 
 $conn->close();
