@@ -49,7 +49,38 @@ body {
     width: 250px;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
 .addBtn {
+    display: flex;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #007fff;
+    border-radius: 12px;
+    color: #007fff;
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+.addBtn:hover {
+    background-color: #007fff;
+    color: white;
+}
+
+.selectImageBtn {
     text-decoration: none;
     padding: 10px;
     border: 1px solid #007fff;
@@ -65,7 +96,18 @@ body {
     text-align: center;
 }
 
-.addBtn:hover {
-    background-color: #007fff;
-    color: white;
+.uploadImageBtn {
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #007fff;
+    border-radius: 12px;
+    color: #007fff;
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
