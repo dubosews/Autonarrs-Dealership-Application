@@ -1,5 +1,7 @@
 // Define Array for Inventory Data Retrieved
 const imageArray = [];
+var containerNumber = 1;
+var number = 1;
 
 var url = window.location.href;
     var regEx = /[0-9]{5}/g;
@@ -96,13 +98,8 @@ var url = window.location.href;
         
         // Add new Element to the Document
             cardDestination.appendChild(cardElement); 
+            fetchImages(dataID)
     };
-
-
-
-function viewSingleVehicle (data) {
-    window.location.replace("www.autonarrs.com/client/inventory.html?id="+data+"");
-}
 
 
 function fetchImages(data) {
@@ -139,7 +136,10 @@ function fetchImages(data) {
                 console.log("inventoryArray after dataPush: "+imageArray);
 
             // Mapping the Array with the Data Retrieved from Server to Template for Display Formatting
-                imageArray.map(buildImageCard);
+                // imageArray.map(buildImageCard);
+                imageArray.map(buildSingleImgContainer);
+                imageArray.map(buildImgRow);
+                
         };
 
     // Request Open
@@ -149,25 +149,78 @@ function fetchImages(data) {
         inventoryRequest.send();
 };
 
-function buildImageCard(data) {
+function buildSingleImgContainer (data) {
 
     // Creating New Body Element
-        var cardDestination = document.getElementById("cardDest");
+        var cardDestination = document.getElementById("singleImgContainer");
         var cardElement = document.createElement("div");
         
         console.log(data)
+        console.log(containerNumber);
 
         // Template to Format Inventory Card
             cardElement.innerHTML = 
                 `
-                    <div class="vehicleCard">
-                        <img src="./src/img/`+data+`" style="width: 20%;"></img>
-                    </div>
+                    <img class="largeImg" src="./src/img/`+data+`" style="width: 100%;" id="largeImg"></img>
                 `;
+            cardElement.id = containerNumber;
+            cardElement.className = "mySlides";
     
     // Add new Element to the Document
+        containerNumber++;
         cardDestination.appendChild(cardElement); 
 };
 
+function buildImgRow (data) {
 
-fetchInventory();
+    // Creating New Body Element
+        var cardDestination = document.getElementById("imgRow");
+        var cardElement = document.createElement("div");
+
+        
+        console.log(number);
+        
+        console.log(data)
+        // Template to Format Inventory Card
+            cardElement.innerHTML = 
+                `
+                    <img class="rowImg" src="./src/img/`+data+`" style="width:100%" onclick="currentSlide(`+number+`)" alt="unavailable" >
+                `;
+                cardElement.className = "imgLink"
+    
+    // Add new Element to the Document
+        cardDestination.appendChild(cardElement);
+        number++;
+        console.log(number);
+};
+
+function currentSlide(data) {
+    var activeSlide = document.getElementsByClassName("mySlides");
+    var dataPass = data;
+    
+    console.log(activeSlide);
+
+    
+        for ( i = 0; i < activeSlide.length; i++) {
+            var slideDisplay = activeSlide[i].style.display;
+            if (slideDisplay === "flex") {
+                activeSlide[i].style.display = "none";
+            }
+            
+        }
+    showSlide(dataPass);
+}
+
+function showSlide (data) {
+    var slideNumber = document.getElementById(data);
+
+    
+    slideNumber.style.display = "flex";
+    console.log(slideNumber);
+}
+
+// Initiate Information Fetch from Server
+    fetchInventory();
+
+// Show first Image Slide
+    currentSlide(1);
